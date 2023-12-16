@@ -15,7 +15,6 @@ To use latex in vscode:
 2. press `option-command-b` to build the file
 3. open the file and press `option-command-v` to open the preview
 
-
 Here is a basic outline to try:
 
 ```latex
