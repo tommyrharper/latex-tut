@@ -4,7 +4,7 @@ This is my reference notes for learning latex.
 
 See: https://www.youtube.com/watch?v=ydOTMQC7np0
 
-To write lates online: https://www.overleaf.com/
+To write latex online: https://www.overleaf.com/
 
 ## Latex How To in VSCode
 
