@@ -1,6 +1,6 @@
 # Latex Tutorial
 
-This my reference notes for learning latex.
+This is my reference notes for learning latex.
 
 See: https://www.youtube.com/watch?v=ydOTMQC7np0
 
