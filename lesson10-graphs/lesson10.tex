@@ -27,9 +27,51 @@
         grid style=dashed,
         ]
         \addplot[domain=0:2*pi,red]{sin(deg(x))}node[right,pos=0.9]{$f(x)=\sin x$};
-        \addplot[domain=0:2*pi,,blue]{cos(deg(x))}
-        node[right,pos=1]{$f(x)=\cos x$};
+        \addplot[domain=0:2*pi,,blue]{cos(deg(x))}node[right,pos=1]{$g(x)=\cos x$};
     \end{axis}
+\end{tikzpicture}\\[10pt]
+
+%     \begin{tikzpicture}
+% \begin{axis}
+% \addplot+[
+%     only marks,
+%     scatter,
+%     mark size=2.9pt]
+% table=[meta=ma]
+% {test.txt};
+% \end{axis}
+% \end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}
+\addplot+[
+    only marks,
+    scatter,
+    mark size=2.9pt
+] coordinates {
+    (5,8.312e-02) (17,2.547e-02) (49,7.407e-03)
+    (129,2.102e-03) (321,5.874e-04) (769,1.623e-04)
+    (1793,4.442e-05) (4097,1.207e-05) (9217,3.261e-06)
+};
+\end{axis}
+\end{tikzpicture}\\[10pt]
+
+\begin{tikzpicture}
+\begin{axis}
+\addplot+[
+    only marks,
+    scatter,
+    mark size=2.9pt
+]
+{rand};
+\end{axis}
+\end{tikzpicture}\\[10pt]
+
+\begin{tikzpicture}
+\begin{axis}
+\addplot+[scatter,scatter src=explicit]
+table[x=xcolname,y=ycolname,meta=colordata]
+{datafile.dat};
+\end{axis}
 \end{tikzpicture}
 
 \end{document}
