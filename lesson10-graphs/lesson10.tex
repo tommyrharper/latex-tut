@@ -8,6 +8,9 @@
 
 \section{2D Plots}
 
+% https://www.youtube.com/watch?v=5jmIHOWpEg0&ab_channel=Dr.TreforBazett
+% Dr. Trefor Bazett - How I make beautiful GRAPHS and PLOTS using LaTeX
+
 \begin{tikzpicture}
 \begin{axis}[xmin=-2, xmax=2, ymin=-2, ymax=2, axis lines=middle, xlabel=$x$, ylabel=$y$]
 \addplot[color=red, dashed, mark=*, samples=50, domain=-1:1]{x^2};
@@ -31,30 +34,30 @@
     \end{axis}
 \end{tikzpicture}\\[10pt]
 
-\begin{tikzpicture}
-\begin{axis}
-\addplot+[
-    only marks,
-    scatter,
-    mark size=2.9pt]
-table[meta=ma]
-{test.txt};
-\end{axis}
-\end{tikzpicture}\\[10pt]
+% \begin{tikzpicture}
+% \begin{axis}
+% \addplot+[
+%     only marks,
+%     scatter,
+%     mark size=2.9pt]
+% table[meta=ma]
+% {test.txt};
+% \end{axis}
+% \end{tikzpicture}\\[10pt]
 
-\begin{tikzpicture}
-\begin{axis}
-\addplot+[
-    only marks,
-    scatter,
-    mark size=2.9pt
-] coordinates {
-    (5,8.312e-02) (17,2.547e-02) (49,7.407e-03)
-    (129,2.102e-03) (321,5.874e-04) (769,1.623e-04)
-    (1793,4.442e-05) (4097,1.207e-05) (9217,3.261e-06)
-};
-\end{axis}
-\end{tikzpicture}\\[10pt]
+% \begin{tikzpicture}
+% \begin{axis}
+% \addplot+[
+%     only marks,
+%     scatter,
+%     mark size=2.9pt
+% ] coordinates {
+%     (5,8.312e-02) (17,2.547e-02) (49,7.407e-03)
+%     (129,2.102e-03) (321,5.874e-04) (769,1.623e-04)
+%     (1793,4.442e-05) (4097,1.207e-05) (9217,3.261e-06)
+% };
+% \end{axis}
+% \end{tikzpicture}\\[10pt]
 
 \begin{tikzpicture}
 \begin{axis}
