@@ -31,16 +31,17 @@
     \end{axis}
 \end{tikzpicture}\\[10pt]
 
-%     \begin{tikzpicture}
-% \begin{axis}
-% \addplot+[
-%     only marks,
-%     scatter,
-%     mark size=2.9pt]
-% table=[meta=ma]
-% {test.txt};
-% \end{axis}
-% \end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}
+\addplot+[
+    only marks,
+    scatter,
+    mark size=2.9pt]
+table[meta=ma]
+{test.txt};
+\end{axis}
+\end{tikzpicture}\\[10pt]
+
 \begin{tikzpicture}
 \begin{axis}
 \addplot+[
@@ -66,15 +67,6 @@
 \end{axis}
 \end{tikzpicture}\\[10pt]
 
-\begin{tikzpicture}
-\begin{axis}
-\addplot+[
-    only marks,
-    scatter,
-    mark size=2.9pt]
-table[meta=ma]
-{datafile.txt};
-\end{axis}
-\end{tikzpicture}
+
 
 \end{document}
