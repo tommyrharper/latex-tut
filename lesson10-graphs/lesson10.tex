@@ -108,4 +108,33 @@ coordinates {
 \end{axis}
 \end{tikzpicture}
 
+\section{3D Plots}
+
+\begin{tikzpicture}
+\begin{axis}
+\addplot3[surf, samples=20, shader=interp]{2-x^2-y^2};
+\end{axis}
+\end{tikzpicture}\\[10pt]
+
+\begin{tikzpicture}
+\begin{axis}
+\addplot3[surf, samples=20]{2-x^2-y^2};
+\end{axis}
+\end{tikzpicture}\\[10pt]
+
+\begin{tikzpicture}
+\begin{axis}[colormap/cool, hide axis]
+\addplot3[mesh, samples=20]{2-x^2-y^2};
+\end{axis}
+\end{tikzpicture}\\[10pt]
+
+\begin{tikzpicture}
+\begin{axis}[view={60}{30}]
+\addplot3+[domain=0:5*pi,samples=60,samples y=0]
+({sin(deg(x))},
+{cos(deg(x))},
+{x});
+\end{axis}
+\end{tikzpicture}\\[10pt]
+
 \end{document}
