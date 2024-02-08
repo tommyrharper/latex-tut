@@ -1,4 +1,4 @@
-GPA ma ve
+GPA ma colordata
 0 0 0.001
 1 2 0.3
 2 2.1 0.4

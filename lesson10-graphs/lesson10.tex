@@ -68,9 +68,12 @@
 
 \begin{tikzpicture}
 \begin{axis}
-\addplot+[scatter,scatter src=explicit]
-table[x=xcolname,y=ycolname,meta=colordata]
-{datafile.dat};
+\addplot+[
+    only marks,
+    scatter,
+    mark size=2.9pt]
+table[meta=ma]
+{datafile.txt};
 \end{axis}
 \end{tikzpicture}
 
