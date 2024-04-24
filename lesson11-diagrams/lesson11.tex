@@ -108,4 +108,26 @@ oldnode/.style={rectangle, draw=blue!60, fill=blue!5, very thick, minimum size=4
 \draw[dashed,->, very thick] (InfY.north east)  to  (SusO.south west);
 \end{tikzpicture}
 
+\vspace{1in}
+
+\begin{tikzpicture}[
+proxy/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=40},
+impl/.style={rectangle, draw=blue!60, fill=blue!5, very thick, minimum size=40},
+eoa/.style={circle, draw=black!60, fill=black!5, very thick, minimum size=40},
+]
+%Nodes
+\node[proxy]        (Proxy)                            {Proxy};
+\node[eoa]        (Eoa)         [left=of Proxy]       {EOA};
+
+\node[impl]      (Impl1)        [right=of Proxy, xshift=20mm]      {Implementation};
+\node[impl]      (Impl2)        [above=of Impl1]      {Implementation};
+\node[impl]      (Impl3)        [below=of Impl1]      {Implementation};
+
+%Lines
+\draw[->, very thick] (Eoa.east) to node[above] {tx} (Proxy.west);
+\draw[->, very thick] (Proxy.east) to node[above] {delegatecall} (Impl1.west);
+\draw[->, very thick] (Proxy.north) to node[above left] {delegatecall} (Impl2.west);
+\draw[->, very thick] (Proxy.south) to node[below left] {delegatecall} (Impl3.west);
+\end{tikzpicture}
+
 \end{document}
