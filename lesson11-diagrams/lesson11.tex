@@ -130,4 +130,95 @@ eoa/.style={circle, draw=black!60, fill=black!5, very thick, minimum size=40},
 \draw[->, very thick] (Proxy.south) to node[below left] {delegatecall} (Impl3.west);
 \end{tikzpicture}
 
+\vspace{1in}
+
+\begin{tikzpicture}[
+proxy/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=40},
+impl/.style={rectangle, draw=blue!60, fill=blue!5, very thick, minimum size=40},
+eoa/.style={circle, draw=black!60, fill=black!5, very thick, minimum size=40},
+]
+%Nodes
+\node[proxy]        (Proxy)                            {Quanto Market};
+\node[eoa]        (Eoa)         [left=of Proxy]       {Trader/LP};
+
+\node[impl]      (Impl1)        [right=of Proxy, xshift=20mm]      {Core Logic};
+\node[impl]      (Impl2)        [above=of Impl1]      {Liquidity Vault};
+\node[impl]      (Impl3)        [below=of Impl1]      {Order Module};
+\node[impl]      (Impl4)        [below=of Impl3]      {Auth Module};
+\node[impl]      (Impl5)        [above=of Impl2]      {Account Module};
+\node[impl]      (Impl6)        [below=of Impl4]      {Liquidation Module};
+\node[impl]      (Impl7)        [above=of Impl5]      {Oracle Management};
+
+%Lines
+\draw[->, very thick] (Eoa.east) to node[above] {tx} (Proxy.west);
+\draw[->, very thick] (Proxy.east) to (Impl1.west);
+\draw[->, very thick] (Proxy.east) to (Impl2.west);
+\draw[->, very thick] (Proxy.east) to (Impl5.west);
+\draw[->, very thick] (Proxy.east) to (Impl7.west);
+\draw[->, very thick] (Proxy.east) to (Impl3.west);
+\draw[->, very thick] (Proxy.east) to (Impl4.west);
+\draw[->, very thick] (Proxy.east) to (Impl6.west);
+\end{tikzpicture}
+
+\vspace{10in}
+
+\begin{tikzpicture}[
+proxy/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=40},
+impl/.style={rectangle, draw=blue!60, fill=blue!5, very thick, minimum size=40},
+eoa/.style={circle, draw=black!60, fill=black!5, very thick, minimum size=40},
+]
+%Nodes
+\node[proxy]        (Proxy)                            {Quanto Market};
+\node[eoa]        (Eoa)         [left=of Proxy]       {Trader/LP};
+
+\node[impl]      (Core)        [right=of Proxy, xshift=20mm]      {Core Logic};
+\node[impl]      (Vault)        [above=of Core]      {Liquidity Vault};
+\node[impl]      (Order)        [below=of Core]      {Order Module};
+\node[impl]      (Account)        [left=of Vault, yshift=10mm]      {Account Module};
+\node[impl]      (Oracle)        [left=of Account, yshift=-5mm]      {Oracle Management};
+\node[impl]      (Auth)        [left=of Order, yshift=-10mm]      {Auth Module};
+\node[impl]      (Liquidation)        [left=of Auth, yshift=5mm]      {Liquidation Module};
+
+%Lines
+\draw[->, very thick] (Eoa) to node[above] {tx} (Proxy.west);
+\draw[->, very thick] (Proxy) to (Core);
+\draw[->, very thick] (Proxy) to (Vault);
+\draw[->, very thick] (Proxy) to (Account);
+\draw[->, very thick] (Proxy) to (Oracle);
+\draw[->, very thick] (Proxy) to (Order);
+\draw[->, very thick] (Proxy) to (Auth);
+\draw[->, very thick] (Proxy) to (Liquidation);
+\end{tikzpicture}
+
+\vspace{10in}
+
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[thick,font=\footnotesize]
+\fill [blue!10] (0,0) -- (0.55,0) -- (0.55,0.55) -- (0,0.55) -- cycle;
+\draw[->] (0,0) -- (5,0) node[right] {Quantity};
+\draw[->] (0,0) -- (0,5) node[above] {Price};
+\coordinate (p1) at (0.55,0.55);
+\draw[color=blue,domain=0.067:4.5,samples=100] plot (\x,{(0.3)/(\x)});
+\draw[dotted] (p1) -- (0.55,0) node[below] {$Q^*$};
+\draw[dotted] (p1) -- (0,0.55) node[left] {$P^*$};
+\fill[blue] (p1) circle (2pt);
+\node[above,font=\large\bfseries] at (current bounding box.north) {Some title};
+\end{tikzpicture}%
+\begin{tikzpicture}[thick,font=\footnotesize]
+\fill [blue!10] (0,0) -- (1,0) -- (1,2) -- (0,2) -- cycle;
+\draw[->] (0,0) -- (5,0) node[right] {Quantity};
+\draw[->] (0,0) -- (0,5) node[above] {Price};
+\coordinate (p1) at (1,2);
+\draw[color=blue,domain=0:2] plot (\x,{(2-\x)*2});
+\draw[dotted] (p1) -- (1,0) node[below] {$Q^*$};
+\draw[dotted] (p1) -- (0,2) node[left] {$P^*$};
+\fill[blue] (p1) circle (2pt);
+\node[above,font=\large\bfseries] at (current bounding box.north) {Some other title};
+\end{tikzpicture}
+\caption{Optimal side A and B pricing under marginal costs, based on}
+\end{figure}
+
+
 \end{document}
