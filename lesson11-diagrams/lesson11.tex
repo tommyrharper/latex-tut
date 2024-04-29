@@ -220,5 +220,42 @@ eoa/.style={circle, draw=black!60, fill=black!5, very thick, minimum size=40},
 \caption{Optimal side A and B pricing under marginal costs, based on}
 \end{figure}
 
+\vspace{10in}
+
+\begin{figure}
+\begin{tikzpicture}[
+proxy/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=40},
+impl/.style={rectangle, draw=blue!60, fill=blue!5, very thick, minimum size=40},
+eoa/.style={circle, draw=black!60, fill=black!5, very thick, minimum size=40},
+]
+%Nodes
+\node[proxy]      (Proxy){Quanto Market};
+\node[eoa]        (LP1)         [above=of Proxy, xshift=-12mm]       {LP};
+\node[eoa]        (LP2)         [right=of LP1]       {LP};
+\node[eoa]        (LP3)         [below=of Proxy, xshift=-11mm]       {LP};
+\node[eoa]        (LP4)         [right=of LP3]       {LP};
+
+% Withdraw tx lines
+\draw[->, very thick, blue] (LP1) to node[left] {Withdraw Intent} (Proxy);
+\draw[->, very thick, cyan] (LP2) to node[right] {Exec Withdraw} (Proxy);
+
+% Deposit tx lines
+\draw[->, very thick, blue] (LP3) to node[left] {Deposit Intent} (Proxy);
+\draw[->, very thick, cyan] (LP4) to node[right] {Exec Deposit} (Proxy);
+
+% Delay lines
+\draw[->, dotted, very thick, magenta] (LP1) to node[above, yshift=3mm] {$x$ delay} (LP2);
+\draw[->, dotted, very thick, magenta] (LP3) to node[below, yshift=-3mm] {$y$ delay} (LP4);
+
+% transfer token lines
+\draw[->, very thick, cyan] (Proxy.east) .. controls  +(right:32mm) and +(right:22mm) .. node[right]{Transfer Tokens} (LP2.east);
+\draw[->, very thick, blue] (LP3.west) .. controls  +(right:-22mm) and +(right:-27mm) .. node[left]{Transfer Tokens} (Proxy.west);
+\end{tikzpicture}
+\caption{Deposit and withdrawal flow for LPs}
+\end{figure}
+
+
+\vspace{10in}
+
 
 \end{document}
