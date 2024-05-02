@@ -308,7 +308,7 @@ decision/.style={diamond, draw=black!60, fill=cyan!5, very thick, minimum size=4
 \node[impl]        (Return)         [below=of ValInc]       {Return Shares};
 
 % Withdraw tx lines
-\draw[->, very thick] (LP1) to node[above] {Deposit Intent} node[below] {Token} (Mint);
+\draw[->, very thick] (LP1) to node[above] {Deposit Intent} node[below, text=blue] {Token} (Mint);
 \draw[->, very thick, blue] (Mint) to node[above]{Shares} node[below]{Tokens} (Vault);
 \draw[->, very thick] (LP2) to node[above] {Exec Deposit} (Claim);
 \draw[->, very thick] (Claim) to (ValInc);
@@ -342,7 +342,7 @@ decision/.style={diamond, draw=black!60, fill=cyan!5, very thick, minimum size=4
 \node[impl]        (Return)         [below=of ValInc]       {Return Tokens};
 
 % Withdraw tx lines
-\draw[->, very thick] (LP1) to node[above] {Withdraw Intent} node[below]{Shares} (Mint);
+\draw[->, very thick] (LP1) to node[above] {Withdraw Intent} node[below, text=blue]{Shares} (Mint);
 \draw[->, very thick, blue] (Mint) to node[below]{Shares} (Vault);
 \draw[->, very thick] (LP2) to node[above] {Exec Withdraw} (Claim);
 \draw[->, very thick] (Claim) to (ValInc);
